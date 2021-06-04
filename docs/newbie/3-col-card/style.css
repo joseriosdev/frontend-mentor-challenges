@@ -22,7 +22,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	font-family: var(--regular-font);
-	line-height: 18px;
+	line-height: 24px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-item p {
-	margin-bottom: 2rem;
+	margin-bottom: 4rem;
 }
 
 .card-item:nth-child(1) {
