@@ -8,6 +8,7 @@ const cardTitles = {
 };
 
 const newbie = `
+  ${HTMLcard('https://joseriosdev.github.io/four-card-feature-section/', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/a3b5gbgtfbtiqrdawpwp.jpg', cardTitles.css)}
   ${HTMLcard('./newbie/ping-coming-soom/ping-coming-soon.html', 'https://www.frontendmentor.io/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdz209s6jk%2Fimage%2Fupload%2Fq_auto%2Cw_700%2FChallenges%2Fqjiprcu1e19yvujjrflv.jpg&w=640&q=75', cardTitles.js)}
   ${HTMLcard('./newbie/3-col-card/3-col-card.html', 'https://www.frontendmentor.io/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdz209s6jk%2Fimage%2Fupload%2Fv1617293265%2FChallenges%2Fap7h50kkrdq7zclbokox.jpg&w=828&q=75', cardTitles.css)}
   ${HTMLcard('./newbie/profile-card-component/profile-card-component.html', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/dia0o9uigiiz4gebiqps.jpg', cardTitles.css)}
