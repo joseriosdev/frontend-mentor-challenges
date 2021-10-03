@@ -8,7 +8,8 @@ const cardTitles = {
 };
 
 const newbie = `
-  ${HTMLcard('./newbie/article-preview-component/articlePreviewComponent.html', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/xqhq3ggsxbtkv4o3av6j.jpg', cardTitles.js)}
+  ${HTMLcard('./newbie/social-proof-section/social-proof.html', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/c5mnesn5eknealmjz4w2.jpg', cardTitles.css)}
+  ${HTMLcard('./newbie/article-preview-component/articlePreviewComponent.html',  'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/xqhq3ggsxbtkv4o3av6j.jpg', cardTitles.js)}
   ${HTMLcard('https://joseriosdev.github.io/four-card-feature-section/', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/a3b5gbgtfbtiqrdawpwp.jpg', cardTitles.css)}
   ${HTMLcard('./newbie/ping-coming-soom/ping-coming-soon.html', 'https://www.frontendmentor.io/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdz209s6jk%2Fimage%2Fupload%2Fq_auto%2Cw_700%2FChallenges%2Fqjiprcu1e19yvujjrflv.jpg&w=640&q=75', cardTitles.js)}
   ${HTMLcard('./newbie/3-col-card/3-col-card.html', 'https://www.frontendmentor.io/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdz209s6jk%2Fimage%2Fupload%2Fv1617293265%2FChallenges%2Fap7h50kkrdq7zclbokox.jpg&w=828&q=75', cardTitles.css)}
