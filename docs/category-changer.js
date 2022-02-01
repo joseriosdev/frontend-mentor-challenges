@@ -4,10 +4,12 @@ const cardTitles = {
   css: 'HTML - CSS',
   js: 'HTML - CSS - JS',
   api: 'HTML - CSS - JS - API',
+  react: 'REACT',
   collaborative: '<br><em>collaborative</em>'
 };
 
 const newbie = `
+  ${HTMLcard('https://joseriosdev.github.io/faq-cmp-frontendMentor/', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/y4zn9ukalew5zbnodrjs.jpg', cardTitles.react)}
   ${HTMLcard('./newbie/social-proof-section/social-proof.html', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/c5mnesn5eknealmjz4w2.jpg', cardTitles.css)}
   ${HTMLcard('./newbie/article-preview-component/articlePreviewComponent.html',  'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/xqhq3ggsxbtkv4o3av6j.jpg', cardTitles.js)}
   ${HTMLcard('https://joseriosdev.github.io/four-card-feature-section/', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/a3b5gbgtfbtiqrdawpwp.jpg', cardTitles.css)}
