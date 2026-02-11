@@ -17,6 +17,7 @@ const newbie = `
   ${HTMLcard('./newbie/3-col-card/3-col-card.html', 'https://www.frontendmentor.io/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdz209s6jk%2Fimage%2Fupload%2Fv1617293265%2FChallenges%2Fap7h50kkrdq7zclbokox.jpg&w=828&q=75', cardTitles.css)}
   ${HTMLcard('./newbie/profile-card-component/profile-card-component.html', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/dia0o9uigiiz4gebiqps.jpg', cardTitles.css)}
   ${HTMLcard('./newbie/single-price/single-price.html', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/i6wu7n5sthrxgfpfibvx.jpg', cardTitles.css)}
+  ${HTMLcard('./newbie/interactive-rating/index.html', 'https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_700/Challenges/uvyyaf5ua06symjnjpe1.jpg', cardTitles.js)}
 `;
 const junior = `
   ${HTMLcard('https://joseriosdev.github.io/advice-generator/', 'https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/sfl8uqvq75wnnr559ksp.jpg', cardTitles.api)}
