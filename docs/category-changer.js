@@ -23,6 +23,7 @@ const junior = `
   ${HTMLcard('https://joseriosdev.github.io/advice-generator/', 'https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/sfl8uqvq75wnnr559ksp.jpg', cardTitles.api)}
   ${HTMLcard('https://brownny87.github.io/blogr-landing-page-main/', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/wdor1bppurckam2nrhwn.jpg', cardTitles.js + cardTitles.collaborative)}
   ${HTMLcard('./junior/testimonials-grid-section-main/testinomial-grid-section.html', 'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/hlfgqwj3chzij3t5erjv.jpg', cardTitles.css)}
+  ${HTMLcard('https://joseriosdev.github.io/crowdfunding-page-challenge/', 'https://raw.githubusercontent.com/joseriosdev/crowdfunding-page-challenge/refs/heads/main/design/desktop-preview.jpg',cardTitles.js + cardTitles.collaborative)}
 `;
 const intermediate = ``;
 const advanced = ``;
