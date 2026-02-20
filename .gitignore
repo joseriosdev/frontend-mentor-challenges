@@ -1,2 +1,4 @@
 /node_modules
 *.json
+# Do not ignore rawProjectsData.json in the root directory
+!docs/rawProjectsData.json
