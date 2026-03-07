@@ -45,7 +45,6 @@ nav {
     color: $white;
     font-size: 1.1rem;
     transition: font-size 200ms linear;
-
     &:hover {
       font-size: 1.2rem;
     }
@@ -64,8 +63,25 @@ nav {
 
   .card {
     display: block;
+    position: relative;
     width: 300px;
     overflow: hidden;
+
+    &:hover::after {
+      content: attr(data-title);
+      position: absolute;
+      background-color: $black;
+      color: $white;
+      padding: 5px;
+      border-radius: 4px;
+      top: 0;
+      left: 0;
+      font-family: $secondary-font;
+      font-weight: 500;
+      font-style: italic;
+      white-space: nowrap;
+      z-index: 1;
+    }
 
     * {
       display: block;
@@ -89,7 +105,7 @@ nav {
       color: $black;
       background-color: $light-gray;
       em {
-        font-family: 'Segoe UI', sans-serif;
+        font-family: $secondary-font;
       }
     }
   }
