@@ -8,7 +8,7 @@
 
 body {
   font-family: $font-stack;
-  background: url(../bg-tile.gif) repeat center;
+  background: url(./bg-tile.gif) repeat center;
 }
 
 a {
@@ -28,6 +28,12 @@ a {
   .title, a {
     color: $black;
     text-align: center;
+  }
+
+  h4, h5 {
+    font-family: $secondary-font;
+    text-align: center;
+    font-weight: 400;
   }
 }
 

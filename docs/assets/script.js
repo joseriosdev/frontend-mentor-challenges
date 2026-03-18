@@ -31,7 +31,7 @@ const fillGridContentObj = (projectsTypeArray) => {
 radioBtns.forEach(input => input.addEventListener('change', () => switchBetweenTabs(input.value)));
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch('./rawProjectsData.json')
+  fetch('./assets/rawProjectsData.json')
     .then(response => {
       if (!response.ok) {
         throw new Error(`Error getting Projects data. Status: ${response.status}`);

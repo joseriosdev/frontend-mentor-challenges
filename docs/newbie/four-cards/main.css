@@ -1,0 +1,124 @@
+:root {
+	--rojo: hsl(0, 78%, 62%);
+	--cian: hsl(180, 62%, 55%);
+	--naranja: hsl(34, 97%, 64%);
+	--azul: hsl(212, 86%, 64%);
+	--very-dark-blue: hsl(234, 12%, 34%);
+	--grayish-blue: hsl(229, 6%, 66%);
+	--very-light-gray: hsl(0, 0%, 97%);
+}
+
+* {
+	margin:  0;
+	padding:  0;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 15px;
+	font-family: 'Poppins', sans-serif;
+	background-color: var(--very-light-gray);
+}
+
+.container {
+	max-width: 900px;
+	margin: 1rem auto;
+}
+
+.header {
+	margin: 4rem auto 3rem;
+	width: 70%;
+	text-align: center;
+}
+
+.main-subtitle {
+	font-weight: 200;
+	font-size: 2rem;
+	color: var(--very-dark-blue);
+}.main-title {
+	margin-bottom: 1rem;
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--very-dark-blue);
+}.main-paragraph {
+	font-weight: 200;
+	color: var(--very-dark-blue);
+}
+
+.grid {
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+}
+
+.card {
+	padding: 1rem;
+	height:  180px;
+	border-top: solid 3px transparent;
+	border-radius: 4px;
+	background-color: white;
+	box-shadow: 3px 7px 12px rgba(0, 0, 50, .2);
+}
+
+.team-builder {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 3;
+	border-top-color: var(--rojo);
+}
+
+.calculator {
+	grid-column: 3/4;
+	grid-row: 2/4;
+	border-top-color: var(--azul);
+}
+
+.karma {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 5;
+	border-top-color: var(--naranja);
+}
+
+.supervisor {
+	grid-column: 1/2;
+	grid-row: 2/4;
+	border-top-color: var(--cian);
+}
+
+.card-title {
+	margin-bottom: .7rem;
+	color: var(--very-dark-blue);
+}.card-paragraph {
+	margin-bottom:  1.5rem;
+	font-size: .8rem;
+	color: var(--grayish-blue);
+}.card-img {
+	display: block;
+	margin-left: auto;
+	width: 40px;
+}
+
+
+/* Media Queries */
+@media (max-width: 500px) {
+	.container {
+		max-width: 84vw;
+	}
+
+	.grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+	}
+
+	.team-builder,
+	.calculator,
+	.karma,
+	.supervisor {
+		grid-column: 1/2;
+		grid-row: auto;
+	}
+}
