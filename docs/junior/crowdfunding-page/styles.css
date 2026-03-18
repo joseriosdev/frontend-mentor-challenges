@@ -1,0 +1,433 @@
+/************************************ GENERAL SET UP ************************************/
+:root {
+  --cyan:hsl(176, 50%, 47%);
+  --dark-cyan: hsl(176, 72%, 28%);
+  --dark-grey: hsl(0, 0%, 48%);
+  --bookmark-circle: #2F2F2F;
+  --bookmark-path: #B1B1B1;
+  --mobile-width: 90vw;
+  --desktop-width: 50vw;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red !important; */
+}
+
+body {
+  font-family: 'Commissioner', sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  color: black;
+  background-color: whitesmoke;
+  font-size: 16px;
+}
+
+main {
+  margin: 15% auto 2rem;
+  width: var(--mobile-width);
+  transform: translateY(-5%);
+  position: relative;
+}
+
+section {
+  margin-bottom: 1rem;
+  padding: 3rem 1.5rem;
+  border: 1px solid azure;
+  border-radius: 10px;
+  background-color: white;
+}
+
+modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0, .5);
+  z-index: 4;
+  overflow: hidden;
+}
+
+my-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem 1.5rem;
+  width: var(--mobile-width);
+  height: 80%;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid azure;
+  background-color: white;
+  overflow: auto;
+  z-index: 5;
+}
+
+h3, h4 {
+  font-weight: 700;
+}
+
+p {
+  color: var(--dark-grey);
+  font-weight: 400;
+}
+
+strong {
+  color: black;
+  font-size: 1.5rem;
+}
+
+hr {
+  margin: 0 auto 0;
+  width: 5rem;
+  border-radius: 10px;
+  opacity: .6;
+}
+
+button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: 500;
+  background-color: var(--cyan);
+  color: white;
+  border: none;
+} button:hover {
+  background-color: var(--dark-cyan);
+  cursor: pointer;
+}
+/************************************ END GENERAL SET UP ************************************/
+/*¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬*/
+/************************************ HEADER & NAV & BURGUER ************************************/
+header { 
+  width: 100%;
+  height: 300px;
+  position: relative;
+  background: url(./images/image-hero-desktop.jpg) no-repeat center center/cover;
+} header::before {
+  content: '';
+  position: absolute;
+  width: inherit;
+  height: 10%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(rgba(0,0,0, .4) 0%, transparent 100%);
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 76%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+header .burger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+header .burger .burger-lines,
+.burger-lines::after,
+.burger-lines::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: white;
+}
+
+header .burger .burger-lines::after,
+header .burger .burger-lines::before {
+  content: '';
+  display: block;
+  top: 10px;
+  background: inherit;
+}
+
+header .burger .burger-lines::before {
+  top: 20px;
+}
+
+header .burger.ex {
+  transform: rotateZ(45deg);
+}
+
+header .burger.ex .burger-lines::after,
+header .burger.ex .burger-lines::before {
+  top: 0;
+  transform: rotateZ(90deg);
+}
+
+header .nav-links {
+  display: none;
+}
+
+.burger-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0, .3);
+} .burger-menu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75vw;
+  height: 200px;
+  border-radius: 10px;
+  list-style: none;
+  background-color: white;
+} .burger-menu ul li {
+  padding: 1rem 0 1rem 1rem;
+  height: auto;
+  cursor: pointer;
+  font-weight: bold;
+} .burger-menu ul hr {
+  opacity: .2;
+}
+
+.burger-menu.open {
+  display: block;
+  z-index: 2;
+}
+/************************************ END HEADER & NAV & BURGUER ************************************/
+/*¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬*/
+/************************************ BODY ************************************/
+.mastercraft-logo {
+  margin-top: 1rem;
+  position: relative;
+} .mastercraft-logo img {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  margin-bottom: 0%;
+}
+
+.main-title h1 {
+  font-weight: 700;
+  padding: 2% 0%;
+  text-align: center;
+  line-height: 110%;
+} .main-title p {
+  font-weight: 500;
+  padding: 2% 0%;
+  text-align: center;
+  line-height: 120%;
+}
+
+.init-btns-container {
+  display: flex;
+  padding: 3% 0% 5%;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.main-btn {
+  font-weight: 700;
+  height: auto;
+  width: 75%;
+  font-size: 18px;
+}
+
+.bookmark-btn {
+  display: none; 
+}
+
+/*¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬*/
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  padding: 2% 0%;
+} .stat-number {
+  text-align: center;
+  padding: 6% 0%;
+  line-height: 250%;
+}
+
+#progress-bar {
+  position: relative;
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 6%;
+  background-color: lightgray;
+  border-radius: 25px;
+}
+
+#progress-bar::before{
+  content: '';
+  position: absolute;
+  width: var(--before-progress-w, 78%);
+  height: inherit;
+  top: 0;
+  left: 0;
+  background-color: var(--cyan);
+  border-radius: inherit;
+}
+
+/*¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬*/
+
+.about p {
+  text-align: left;
+  line-height: 1.5;
+} .about h3 {
+  margin-bottom: 1.5rem;
+}
+
+.item-card {
+  margin: 2rem 0;
+  padding: 20px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.item-card-head {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+} .item-card-head h3 {
+  padding: 1% 0%;
+  line-height: 130%;
+} .item-card-head h5 {
+  color: var(--cyan);
+}
+
+.item-card-footer {
+  margin: 3% 0% 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100px;
+}
+/************************************ END BODY ************************************/
+/*¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬*/
+/************************************ MODALS ************************************/
+.support-modal-header {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+} .support-modal-header figure {
+  cursor: pointer;
+}
+
+
+.success-modal {
+  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+} .success-modal P {
+  text-align: center;
+}
+/************************************ END MODALS ************************************/
+/*¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬*/
+/************************************ UTILS ************************************/
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.inactive-pledge {
+  opacity: 0.5;
+}
+
+.d-none {
+  display: none;
+}
+
+/************************************ END UTILS ************************************/
+/*¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬*/
+
+@media (min-width: 500px) {
+  hr {
+    width: 0;
+    height: 5rem;
+  }
+
+  main {
+    width: var(--desktop-width);
+    transform: translateY(-12%);
+  }
+
+  my-modal {
+    width: 33vw;
+  }
+
+  #support-modal my-modal {
+    width: 50vw;
+  }
+
+  header .burger {
+    display: none;
+  }
+
+  header .nav-links {
+    display: flex;
+    width: 40%;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    color: white;
+    font-size: .8rem;
+  } header .nav-links li {
+    cursor: pointer;
+  }
+
+  .bookmark-container {
+    display: flex;
+    width: 35%;
+    margin-left: 5%;
+    padding: 0%;
+    border-radius: 25px;
+    background-color: lightgray;
+    cursor: pointer;
+  } .bookmark-btn {
+    display: block;
+    background-color: inherit;
+    color: var(--dark-grey);
+  } .bookmark-btn:hover {
+    background-color: inherit;
+  }
+
+  .stats {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .item-card-head,
+  .item-card-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .success-modal {
+    height: 50vh;
+  }
+}
