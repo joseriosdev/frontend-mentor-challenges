@@ -1,4 +1,3 @@
-console.log('running script.js');
 const radioBtns = document.querySelectorAll('[name="categories"]');
 const grid = document.querySelector('.grid');
 const gridContent = {};
@@ -8,7 +7,6 @@ const fillGridContentObj = (projectsTypeArray) => {
     let htmlText = '';
 
     projectType.projects.forEach(proj => {
-      console.log('proj is: ', proj);
       htmlText +=  `
         <a href="${proj.url}" class="card" data-title="${proj.name}">
           <figure>
@@ -31,7 +29,7 @@ const fillGridContentObj = (projectsTypeArray) => {
 radioBtns.forEach(input => input.addEventListener('change', () => switchBetweenTabs(input.value)));
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('./rawProjectsData.json')
+  fetch('./assets/rawProjectsData.json')
     .then(response => {
       if (!response.ok) {
         throw new Error(`Error getting Projects data. Status: ${response.status}`);
