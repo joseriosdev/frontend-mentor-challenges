@@ -7,6 +7,7 @@ const burgerMenuElmt = document.querySelector('.burger-menu');
 //--
 
 //--
+let isBookmarked = false;
 const moneyElmt = document.getElementById('money');
 const moneyGoalElmt = document.getElementById('money-goal');
 const totalBackersElmt = document.getElementById('total-backers');
@@ -19,8 +20,7 @@ const blackCostElmt = document.getElementById('black-cost');
 const mahoganyLeftElmt = document.getElementById('mahogany-left');
 const mahoganyCostElmt = document.getElementById('mahogany-cost');
 const defaultValType = Object.freeze({ MONEY: 0, NUMBER: 1, OTHER: 2 });
-const defaultValues = Object.freeze( //--didn't know 'get' and 'set' were really stuff here in JS
-{
+const defaultValues = {
   money_raised:       { value: 75560, type: defaultValType.MONEY, element: moneyElmt },
   money_goal:         { value: 100000, type: defaultValType.MONEY, element: moneyGoalElmt },
   total_backers:      { value: 5007, type: defaultValType.NUMBER, element: totalBackersElmt },
@@ -29,12 +29,12 @@ const defaultValues = Object.freeze( //--didn't know 'get' and 'set' were really
   bamboo_cost:        { value: 25, type: defaultValType.MONEY, element: bambooCostElmt },
   item_black_left:    { value: 64, type: defaultValType.NUMBER, element: blackLeftElmt },
   black_cost:         { value: 75, type: defaultValType.MONEY, element: blackCostElmt },
-  item_mahogany_left: { value: 0, type: defaultValType.NUMBER, element: mahoganyLeftElmt },
+  item_mahogany_left: { value: 1, type: defaultValType.NUMBER, element: mahoganyLeftElmt },
   mahogany_cost:      { value: 200, type: defaultValType.MONEY, element: mahoganyCostElmt },
   get progress_bar() {
     return { value: (this.money_raised.value / this.money_goal.value) * 100, type: defaultValType.OTHER, element: barElmt }
   }
-});
+};
 
 /** -------- EVENTS -------- **/
 const toggleModal = (id) => document.getElementById(id).classList.toggle('d-none');
@@ -62,6 +62,16 @@ function bookmarkClick(e, element)
   e.preventDefault();
   handleBookmark(element, true);
 }
+
+document.querySelector('.main-btn').addEventListener('click', () =>
+{
+  document.getElementById('support-modal').classList.remove('d-none');
+});
+
+document.getElementById('close-support-modal-x').addEventListener('click', () =>
+{
+  document.getElementById('support-modal').classList.add('d-none');
+});
 /** -------- END EVENTS -------- **/
 
 
@@ -71,67 +81,26 @@ function handleModalSuccess(modalID, elementToListen)
 
 }
 
-function setUpDynamicValues(forceInitValues = false)
+function setUpDynamicValues()
 {
-  const alreadySetUp = localStorage.getItem(key_siteIntiated);
   Object.keys(defaultValues).forEach(key =>
   {
-    if(!alreadySetUp || forceInitValues)
-    {
-      const numberFormatter = new Intl.NumberFormat();
-      const moneyFormatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        maximumSignificantDigits: 6
-      });
+    const val = defaultValues[key];
 
-      if(defaultValues[key].type === defaultValType.MONEY)
-      {
-        const newVal = moneyFormatter.format(defaultValues[key].value);
-        defaultValues[key].element.innerText = newVal;
-        localStorage.setItem(key, newVal);
-      }
-      else if(defaultValues[key].type === defaultValType.NUMBER)
-      {
-        const newVal = numberFormatter.format(defaultValues[key].value);
-        defaultValues[key].element.innerText = newVal;
-        localStorage.setItem(key, newVal);
-      }
-      else
-      {
-        const newVal = `${defaultValues[key].value}%`;
-        defaultValues[key].element.style.setProperty('--before-progress-w', newVal);
-        localStorage.setItem(key, newVal);
-      }
-    }
-    else
-    {
-      const val = localStorage.getItem(key);
-      
-      if(defaultValues[key].type !== defaultValType.OTHER)
-        defaultValues[key].element.innerText = val;
-      else
-        defaultValues[key].element.style.setProperty('--before-progress-w', val);
-
-      if(key.startsWith('item_')) defaultValues[key].value <= 0
-        ? document.querySelector(`.item-card:has(#${defaultValues[key].element.id})`).classList.add('inactive-pledge')
-        : document.querySelector(`.item-card:has(#${defaultValues[key].element.id})`).classList.remove('inactive-pledge');  
-    }
+    updateNum(val, key);
+    confirmPledgeAvailability(key, val);
   });
-  if(!alreadySetUp) localStorage.setItem(key_siteIntiated, '1');
 }
 
 function handleBookmark(element, toggle)
 {
   const rootedStyles = window.getComputedStyle(document.documentElement);
-  let isBookmarked = !!localStorage.getItem(key_bookmarked);
   const circle = document.querySelector('circle');
   const path = document.querySelector('path');
   const button = element.firstElementChild.nextElementSibling;
 
   if(toggle)
   {
-    localStorage.setItem(key_bookmarked, isBookmarked ? '' : '1');
     isBookmarked = !isBookmarked;
   }
 
@@ -154,7 +123,6 @@ function handleBookmark(element, toggle)
 function handleBookmarkHover(isEntered)
 {
   const rootedStyles = window.getComputedStyle(document.documentElement);
-  const isBookmarked = !!localStorage.getItem(key_bookmarked);
   const circle = document.querySelector('circle');
   const button = document.querySelector('.bookmark-btn');
 
@@ -167,5 +135,65 @@ function handleBookmarkHover(isEntered)
   {
     circle.style.fill = rootedStyles.getPropertyValue(isEntered ? '--dark-grey' : '--bookmark-circle').trim();
     button.style.color = rootedStyles.getPropertyValue('--dark-grey').trim();
+  }
+}
+
+function updateNum(obj, key)
+{
+  const numberFormatter = new Intl.NumberFormat();
+  const moneyFormatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumSignificantDigits: 6
+  });
+
+  if(obj.type === defaultValType.MONEY)
+  {
+    const newVal = moneyFormatter.format(obj.value);
+    obj.element.innerText = newVal;
+  }
+  else if(obj.type === defaultValType.NUMBER)
+  {
+    const newVal = numberFormatter.format(obj.value);
+    obj.element.innerText = newVal;
+  }
+  else
+  {
+    const newVal = `${obj.value}%`;
+    obj.element.style.setProperty('--before-progress-w', newVal);
+  }
+
+  if (obj.value == 0)
+  {
+    confirmPledgeAvailability(key, obj);
+  }
+}
+
+function confirmPledgeAvailability(key, val)
+{
+  if(key.startsWith('item_'))
+  {
+    const cardElmt =  document.querySelector(`.item-card:has(#${val.element.id})`);
+
+    if (val.value <= 0)
+    {
+      cardElmt.classList.add('inactive-pledge');
+
+      const btn = document.querySelector(`.item-card:has(#${val.element.id}) button`);
+      btn.textContent = 'Out of Stock';
+    }
+    else
+    {
+      cardElmt.classList.remove('inactive-pledge');
+
+      const btn = document.querySelector(`.item-card:has(#${val.element.id}) button`);
+      btn.textContent = 'Select Reward';
+      btn.addEventListener('click', () =>
+      {
+        document.getElementById('success-modal').classList.remove('d-none');
+        val.value = val.value - 1;
+        updateNum(val, key);
+      });
+    }
   }
 }
