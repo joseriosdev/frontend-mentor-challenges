@@ -26,6 +26,11 @@ template.innerHTML = `
     } .card-on .circle {
       border: 1px solid var(--cyan);
     } .card-on .circle div {
+      margin: 3px auto 0;
+      padding: 0;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
       background: var(--cyan);
     }
 
@@ -130,7 +135,7 @@ template.innerHTML = `
     }
   </style>
 
-  <main class="card-on">
+  <main>
     <header>
       <div class="circle"><div></div></div>
       <div>
@@ -191,7 +196,7 @@ class Cmp_ItemSupportModal extends HTMLElement
   {
     if(e.detail.on)
     {
-      
+      this.shadowRoot.querySelector('main').classList.add('card-on');
     }
   }
 

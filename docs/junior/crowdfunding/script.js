@@ -27,9 +27,9 @@ const defaultValues = {
   days_left:          { value: 56, type: defaultValType.NUMBER, element: daysLeftElmt },
   item_bamboo_left:   { value: 101, type: defaultValType.NUMBER, element: bambooLeftElmt },
   bamboo_cost:        { value: 25, type: defaultValType.MONEY, element: bambooCostElmt },
-  item_black_left:    { value: 64, type: defaultValType.NUMBER, element: blackLeftElmt },
+  item_black_left:    { value: 3, type: defaultValType.NUMBER, element: blackLeftElmt },
   black_cost:         { value: 75, type: defaultValType.MONEY, element: blackCostElmt },
-  item_mahogany_left: { value: 1, type: defaultValType.NUMBER, element: mahoganyLeftElmt },
+  item_mahogany_left: { value: 0, type: defaultValType.NUMBER, element: mahoganyLeftElmt },
   mahogany_cost:      { value: 200, type: defaultValType.MONEY, element: mahoganyCostElmt },
   get progress_bar() {
     return { value: (this.money_raised.value / this.money_goal.value) * 100, type: defaultValType.OTHER, element: barElmt }

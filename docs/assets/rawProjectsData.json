@@ -72,6 +72,13 @@
         "level": "junior",
         "projects": [
             {
+                "url": "https://joseriosdev.github.io/crowdfunding-page-challenge/",
+                "img": "https://raw.githubusercontent.com/joseriosdev/crowdfunding-page-challenge/refs/heads/main/design/desktop-preview.jpg",
+                "name": "Crowdfunding",
+                "title": "Web Components",
+                "subtitle": "Collaborative"
+            },
+            {
                 "url": "./junior/advice-generator/",
                 "img": "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/sfl8uqvq75wnnr559ksp.jpg",
                 "name": "Advice Generator",
