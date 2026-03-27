@@ -104,7 +104,16 @@
     ,
     {
         "level": "intermediate",
-        "projects": []
+        "projects": [
+	    {
+                "url": "./intermediate/to-do/",
+                "img": "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/ty4ppudcq94rtgj4rv6p.jpg",
+                "name": "Todo App",
+                "title": "HTML - CSS - JS",
+                "subtitle": ""
+            }
+
+	]
     }
     ,
     {
