@@ -72,8 +72,8 @@
         "level": "junior",
         "projects": [
             {
-                "url": "https://joseriosdev.github.io/crowdfunding-page-challenge/",
-                "img": "https://raw.githubusercontent.com/joseriosdev/crowdfunding-page-challenge/refs/heads/main/design/desktop-preview.jpg",
+                "url": "./junior/crowdfunding/",
+                "img": "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_700/Challenges/luxbxwbgw9q8cj3i8d7l.jpg",
                 "name": "Crowdfunding",
                 "title": "Web Components",
                 "subtitle": "Collaborative"
@@ -105,15 +105,14 @@
     {
         "level": "intermediate",
         "projects": [
-	    {
+            {
                 "url": "./intermediate/to-do/",
                 "img": "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/ty4ppudcq94rtgj4rv6p.jpg",
                 "name": "Todo App",
                 "title": "HTML - CSS - JS",
                 "subtitle": ""
             }
-
-	]
+	    ]
     }
     ,
     {
