@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--font-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <!--css-->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
+  <title>Todo app</title>
+</head>
+<body>
+  <figure class="bg-img">
+  </figure>
+
+  <main class="container">
+    <header class="container__header">
+      <h1>TODO</h1>
+      <div class="toggle"></div>
+    </header>
+
+    <section class="container__section">
+      <div class="todo-item border-radius" id="input-typer">
+        <div class="list-circle"></div>
+        <input type="text" id="todo-input" placeholder="Create a new todo...">
+      </div>
+      <div class="container__section--todos">
+        
+        <!--todo desktop btn set footer-->
+        <div class="todo-item desktop-btns-footer">
+          <p>N items left</p>
+          <div class="desktop-filter-set">
+            <div class="active-filter">All</div>
+            <div>Active</div>
+            <div>Completed</div>
+          </div>
+          <p>Clear Completed</p>
+        </div>
+        
+      </div>
+      <!--end of container todos-->
+      
+      <!--Will pop up on mobile-->
+      <div class="mobile-filter-set todo-item flex-evenly border-radius">
+        <div class="active-filter">All</div>
+        <div>Active</div>
+        <div>Completed</div>
+      </div>
+    </section>
+    <p>Drag and drop to reorder list</p>
+  </main>  
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://joseriosdev.github.io/">joseriosdev</a> | Thank you <strong>Jesus</strong> my <strong>LORD</strong>!
+  </div>
+
+  <script src="./scripts/colorThemeToggle.js"></script>
+  <script src="./scripts/main.js"></script>
+</body>
+</html>

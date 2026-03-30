@@ -22,7 +22,8 @@ const fillGridContentObj = (projectsTypeArray) => {
         </a>
       `;
     });
-    gridContent[projectType.level] = htmlText;
+    console.log('setting: ' + projectType.level, 'with html: ' + htmlText)
+    gridContent[projectType.level] = !htmlText ? 'Under construction...🧰🐞👾⚠️' : htmlText;
   });
 };
 
