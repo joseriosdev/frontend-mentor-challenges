@@ -37,9 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="list-circle ${todo.completed ? 'checked' : ''}">
         <img src="images/icon-check.svg" class="${todo.completed ? 'd-inline-block' : 'd-none'}">
       </div>
-      <p>${todo.text}</p>
-      <div class="delete-x"></div>
+      <p></p>
+      <img class="delete-x" alt="x" src="./images/icon-cross.svg"/>
     `;
+
+    div.querySelector('p').textContent = todo.text;
 
     div.querySelector('.list-circle').onclick = () => toggleTodo(todo.id);
     div.querySelector('.delete-x').onclick = () => deleteTodo(todo.id);
@@ -109,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   todoInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && todoInput.value.trim() !== '') {
       addTodo(todoInput.value.trim());
+      e.preventDefault();
     }
   });
 

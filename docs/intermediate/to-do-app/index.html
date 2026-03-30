@@ -21,41 +21,33 @@
       <div class="toggle"></div>
     </header>
 
-    <section class="container__section">
-      <div class="todo-item border-radius" id="input-typer">
+    <form class="container__section">
+      <header class="todo-item border-radius" id="input-typer">
         <div class="list-circle"></div>
         <input type="text" id="todo-input" placeholder="Create a new todo...">
-      </div>
-      <div class="container__section--todos">
+      </header>
+      <section class="container__section--todos">
         
         <!--todo desktop btn set footer-->
-        <div class="todo-item desktop-btns-footer">
+        <nav class="todo-item desktop-btns-footer">
           <p></p>
-          <div class="desktop-filter-set">
-            <div class="active-filter" id="btn-all">All</div>
-            <div id="btn-active">Active</div>
-            <div id="btn-completed">Completed</div>
-          </div>
+          <ul class="desktop-filter-set">
+            <li class="active-filter" id="btn-all">All</li>
+            <li id="btn-active">Active</li>
+            <li id="btn-completed">Completed</li>
+          </ul>
           <p id="btn-clear">Clear Completed</p>
-        </div>
-        
-      </div>
+        </nav>
+      </section>
       <!--end of container todos-->
-      
-      <!--Will pop up on mobile-->
-      <div class="mobile-filter-set todo-item flex-evenly border-radius">
-        <div class="active-filter">All</div>
-        <div>Active</div>
-        <div>Completed</div>
-      </div>
-    </section>
+    </form>
     <p>Drag and drop to reorder list</p>
   </main>  
 
-  <div class="attribution">
+  <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://joseriosdev.github.io/">joseriosdev</a> | Thank you <strong>Jesus</strong> my <strong>LORD</strong>!
-  </div>
+  </footer>
 
   <script src="./scripts/colorThemeToggle.js"></script>
   <script src="./scripts/main.js"></script>
