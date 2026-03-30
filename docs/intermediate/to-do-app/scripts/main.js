@@ -120,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const active = document.getElementById('btn-active');
   const completed = document.getElementById('btn-completed');
   const auxBtns = document.querySelectorAll('.desktop-filter-set div');
-  console.log(auxBtns)
 
   clear.addEventListener('click', () => {
     const filteredTodos = todos.filter(todo => todo.completed);
