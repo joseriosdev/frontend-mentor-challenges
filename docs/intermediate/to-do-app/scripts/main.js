@@ -2,17 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const todoInput = document.getElementById('todo-input');
   const todoContainer = document.querySelector('.container__section--todos');
   const itemsLeftSpan = document.querySelector('.desktop-btns-footer p:first-child');
+  const classActiveFilter = 'active-filter';
   
   let todos = [
     { id: 1, text: 'Talk with my Creator', completed: true },
     { id: 2, text: 'Prepare English class', completed: false }
   ];
 
-  const renderTodos = () => {
+  const renderTodos = (todosList = todos) => {
     const footer = document.querySelector('.desktop-btns-footer');
     todoContainer.innerHTML = '';
     
-    todos.forEach((todo, index) => {
+    todosList.forEach((todo, index) => {
       const todoElement = createTodoElement(todo, index);
       todoContainer.appendChild(todoElement);
       
@@ -112,4 +113,51 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   renderTodos();
+
+  // --- AUX BTNS ---
+  const clear = document.getElementById('btn-clear');
+  const all = document.getElementById('btn-all');
+  const active = document.getElementById('btn-active');
+  const completed = document.getElementById('btn-completed');
+  const auxBtns = document.querySelectorAll('.desktop-filter-set div');
+  console.log(auxBtns)
+
+  clear.addEventListener('click', () => {
+    const filteredTodos = todos.filter(todo => todo.completed);
+    for (let i = 0; i < filteredTodos.length; i++) {
+      deleteTodo(todos.find(todo => todo.id === filteredTodos[i].id).id);
+    }
+  });
+
+  all.addEventListener('click', () => {
+    renderTodos();
+    auxBtns.forEach(btn => {
+      if (btn.classList.contains(classActiveFilter)) {
+        btn.classList.remove(classActiveFilter);
+      }
+    });
+    all.classList.add(classActiveFilter);
+  });
+
+  active.addEventListener('click', () => {
+    const filteredTodos = todos.filter(todo => !todo.completed);
+    renderTodos(filteredTodos);
+    auxBtns.forEach(btn => {
+      if (btn.classList.contains(classActiveFilter)) {
+        btn.classList.remove(classActiveFilter);
+      }
+    });
+    active.classList.add(classActiveFilter);
+  });
+
+  completed.addEventListener('click', () => {
+    const filteredTodos = todos.filter(todo => todo.completed);
+    renderTodos(filteredTodos);
+    auxBtns.forEach(btn => {
+      if (btn.classList.contains(classActiveFilter)) {
+        btn.classList.remove(classActiveFilter);
+      }
+    });
+    completed.classList.add(classActiveFilter);
+  });
 });
