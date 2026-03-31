@@ -1,40 +1,10 @@
-const key_siteIntiated = 'site_intiated';
-const key_bookmarked = 'bookmarked';
+import { defaultValues, defaultValType } from './db.js';
 const bookmarkElmt = document.querySelector('.bookmark-container');
 //--
 const burgerElmt = document.querySelector('.burger');
 const burgerMenuElmt = document.querySelector('.burger-menu');
 //--
-
-//--
 let isBookmarked = false;
-const moneyElmt = document.getElementById('money');
-const moneyGoalElmt = document.getElementById('money-goal');
-const totalBackersElmt = document.getElementById('total-backers');
-const daysLeftElmt = document.getElementById('days-left');
-const barElmt = document.getElementById('progress-bar');
-const bambooLeftElmt = document.getElementById('bamboo-left');
-const bambooCostElmt = document.getElementById('bamboo-cost');
-const blackLeftElmt = document.getElementById('black-left');
-const blackCostElmt = document.getElementById('black-cost');
-const mahoganyLeftElmt = document.getElementById('mahogany-left');
-const mahoganyCostElmt = document.getElementById('mahogany-cost');
-const defaultValType = Object.freeze({ MONEY: 0, NUMBER: 1, OTHER: 2 });
-const defaultValues = {
-  money_raised:       { value: 75560, type: defaultValType.MONEY, element: moneyElmt },
-  money_goal:         { value: 100000, type: defaultValType.MONEY, element: moneyGoalElmt },
-  total_backers:      { value: 5007, type: defaultValType.NUMBER, element: totalBackersElmt },
-  days_left:          { value: 56, type: defaultValType.NUMBER, element: daysLeftElmt },
-  item_bamboo_left:   { value: 101, type: defaultValType.NUMBER, element: bambooLeftElmt },
-  bamboo_cost:        { value: 25, type: defaultValType.MONEY, element: bambooCostElmt },
-  item_black_left:    { value: 3, type: defaultValType.NUMBER, element: blackLeftElmt },
-  black_cost:         { value: 75, type: defaultValType.MONEY, element: blackCostElmt },
-  item_mahogany_left: { value: 0, type: defaultValType.NUMBER, element: mahoganyLeftElmt },
-  mahogany_cost:      { value: 200, type: defaultValType.MONEY, element: mahoganyCostElmt },
-  get progress_bar() {
-    return { value: (this.money_raised.value / this.money_goal.value) * 100, type: defaultValType.OTHER, element: barElmt }
-  }
-};
 
 /** -------- EVENTS -------- **/
 const toggleModal = (id) => document.getElementById(id).classList.toggle('d-none');
@@ -192,7 +162,13 @@ function confirmPledgeAvailability(key, val)
       {
         document.getElementById('success-modal').classList.remove('d-none');
         val.value = val.value - 1;
+        const s = key.split('_')[1];
         updateNum(val, key);
+        defaultValues.money_raised.value += defaultValues[s + '_cost'].value;
+        defaultValues.total_backers.value++;
+        updateNum(defaultValues.total_backers, null);
+        updateNum(defaultValues.money_raised, null);
+        updateNum(defaultValues.progress_bar, null);
       });
     }
   }
