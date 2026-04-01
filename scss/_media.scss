@@ -8,4 +8,27 @@
   .grid {
     grid-template-columns: 1fr;
   }
+
+  .categories .category-wrapper {
+    display: inline-block;
+    width: fit-content;
+    padding: 0 .2rem;    
+    font-size: .8rem;
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  input[type="radio"] {
+    padding: .2rem;
+
+    &:checked + div {
+      position: static;
+      padding: .2rem .3rem;
+    }
+  }
 }

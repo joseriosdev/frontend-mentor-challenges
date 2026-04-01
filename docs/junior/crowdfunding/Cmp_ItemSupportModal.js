@@ -258,12 +258,7 @@ class DatabaseText extends HTMLElement {
 }
 
 customElements.define('database-text', DatabaseText);
-
-
-
-
-
-
+---------
 
 2. Using Reactive Properties (Best for updates)
 class ReactiveDatabaseText extends HTMLElement {
@@ -295,11 +290,7 @@ class ReactiveDatabaseText extends HTMLElement {
   }
 }
 customElements.define('reactive-database-text', ReactiveDatabaseText);
-
-
-
-
-
+-----
 
 
 
